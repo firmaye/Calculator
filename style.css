@@ -15,7 +15,7 @@
   padding: 20px;
   border-radius: 10px;
 }
-.calculator form input {
+.calculator form button {
   border: 0;
   outline: 0;
   width: 60px;
@@ -28,23 +28,37 @@
   font-weight: 800;
   font-size: larger;
 }
-.calculator form input:hover {
+.calculator form button:hover {
   background: rgb(32, 13, 52);
 }
-form .display {
+form .disp {
   display: flex;
   justify-content: flex-end;
+  border-radius: 10px;
 }
-form .display input {
+form .disp input {
   text-align: right;
   flex: 1;
   font-size: 45px;
   font-weight: 400;
   height: 100px;
+  background: rgb(19, 7, 31);
+  height: 80px;
+  width: 60px;
+  outline: none;
+  border: none;
+  text-align: right;
+  margin-bottom: 10px;
+
+  color: #fff;
+  pointer-events: none;
 }
-form .display input:hover {
+form .disp input:hover {
   background: rgb(19, 7, 31);
 }
 form input.equal {
   width: 200px;
+}
+form button.operator {
+  color: blueviolet;
 }
