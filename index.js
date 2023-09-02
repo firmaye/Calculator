@@ -3,9 +3,11 @@ const buttons = document.querySelectorAll("button");
 const specialChars = ["%", "*", "/", "-", "+", "="];
 let output = "";
 
-//Define function to calculate based on button clicked.
 const calculate = (btnValue) => {
   display.focus();
+  const operators = ["+", "-", "*", "/", ".", "%"];
+  const lastCharacter = output[output.length - 1];
+  const isLastCharacterOperator = operators.includes(lastCharacter);
   if (btnValue === "=" && output !== "") {
     //If output has '%', replace with '/100' before evaluating.
     output = eval(output.replace("%", "/100"));
@@ -14,6 +16,9 @@ const calculate = (btnValue) => {
   } else if (btnValue === "DEL") {
     //If DEL button is clicked, remove the last character from the output.
     output = output.toString().slice(0, -1);
+  } else if (isLastCharacterOperator && operators.includes(btnValue)) {
+    output = output.toString().slice(0, -1);
+    output += btnValue;
   } else {
     //If output is empty and button is specialChars then return
     if (output === "" && specialChars.includes(btnValue)) return;
